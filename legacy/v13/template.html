@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8" />
+<meta name="viewport" content="width=1080" />
+<style>
+@page{size:1080px {{PAGE_HEIGHT}}px;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{width:1080px;background:#f2f4f6}
+body{position:relative;width:1080px;height:{{BODY_HEIGHT}}px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:{{PAD_TOP}}px 0 {{PAD_BOTTOM}}px}
+body{font-family:-apple-system,"PingFang SC","Helvetica Neue","Noto Sans CJK SC","Apple Color Emoji","Noto Color Emoji",sans-serif;
+color:#0f1419}
+.page{position:relative;width:1080px}
+.tbl{position:relative;z-index:1;width:1080px;height:{{PAGE_HEIGHT}}px;display:flex;flex-direction:column;padding:60px 70px}
+.pagebg{position:absolute;left:0;top:0;width:1080px;height:{{PAGE_HEIGHT}}px;z-index:0}
+.card{position:relative;z-index:1;isolation:isolate;width:940px;margin:auto 0;flex:none;background:#fff;border-radius:44px;overflow:hidden;padding:72px 72px 56px;box-shadow:0 24px 60px rgba(15,20,25,.10);display:flex;flex-direction:column}
+.cardbg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1}
+.head{display:flex;align-items:center;gap:28px}
+.avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#e7ecf0;flex:none}
+.name{font-size:44px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:620px}
+.handle{font-size:34px;color:#536471;margin-top:6px}
+.text{font-size:{{FONT_SIZE}}px;line-height:1.55;margin-top:52px;white-space:pre-wrap;word-break:break-word}
+.tr{font-size:calc({{FONT_SIZE}}px * 0.72);line-height:1.6;color:#6b7785;margin-top:28px;padding-top:24px;border-top:2px dashed #eff3f4;white-space:pre-wrap;word-break:break-word}
+.tr:empty{display:none}
+.media{display:none;grid-template-columns:1fr 1fr;gap:12px}
+.n1,.n2,.n3,.n4{display:grid;margin-top:40px}
+.m{position:relative;height:380px;border-radius:24px;overflow:hidden;background:#e7ecf0}
+.m img{width:100%;height:100%;object-fit:cover;display:block}
+.m:first-child:nth-last-child(2),.m:first-child:nth-last-child(2)~.m{height:420px}
+.m:only-child{grid-column:1/-1;height:var(--h)}
+.m:nth-child(n+5){display:none}
+.n3{grid-template-rows:380px 380px}
+.n3 .m:first-child{grid-row:1/3;height:772px}
+.v::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:rgba(0,0,0,.55);border:4px solid rgba(255,255,255,.9)}
+.v::before{content:"";position:absolute;z-index:1;left:50%;top:50%;margin:-26px 0 0 -14px;border-style:solid;border-width:26px 0 26px 44px;border-color:transparent transparent transparent #fff}
+.photo{margin-top:40px;width:100%;max-height:520px;object-fit:cover;border-radius:28px;display:{{PHOTO_DISPLAY}}}
+.date{font-size:30px;color:#536471;margin-top:44px}
+.stats{display:flex;justify-content:space-between;border-top:2px solid #eff3f4;margin-top:32px;padding-top:32px;font-size:32px;color:#536471}
+.stats b{color:#0f1419;font-weight:700;margin-right:8px}
+.foot{text-align:center;font-size:26px;color:#8b98a5;margin-top:36px;letter-spacing:2px}
+</style></head><body>
+<img class="pagebg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAEACAIAAAABSaAFAAAAcUlEQVR4nO3XOxKAIAxF0cBk/0u1saHTDZDRQsmHS+kppLivoB3nkNnp06/AN6DNApHL7VYA8Axmu0t+zj5CgYpRQ9DrerbLPoA/oHzU7KMs0G4sYB/vgXb3g/L7SBZ1svdHeXDdR7J2gf3A3AftusANOGkNApcZnysAAAAASUVORK5CYII=" alt="" />
+<div class="card"><img class="cardbg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAFElEQVR4nGP8//8/AwwwMSAB3BwAlm4DBfIlvvkAAAAASUVORK5CYII=" alt="" />
+ <div class="head"><img class="avatar" src="{{AVATAR}}" alt="" />
+  <div><div class="name">{{NAME}}</div><div class="handle">@{{HANDLE}}</div></div></div>
+ <div class="text">{{TEXT}}</div>
+ <div class="tr">{{TRANSLATION}}</div>
+ <div class="media n{{MEDIA_COUNT}}">{{MEDIA}}</div>
+ <img class="photo" src="{{PHOTO}}" alt="" />
+ <div class="date">{{DATE}}</div>
+ <div class="stats"><span><b>{{REPLIES}}</b>回复</span><span><b>{{RETWEETS}}</b>转帖</span><span><b>{{LIKES}}</b>喜欢</span><span><b>{{VIEWS}}</b>查看</span></div>
+ <div class="foot">来自 X · x.com/{{HANDLE}}</div>
+</div>
+</body></html>
